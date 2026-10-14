@@ -74,7 +74,6 @@ st.write("---")
 st.header(t['market_title'])
 st.write(t['market_sub'])
 
-# محاكاة تفاعلية للجدول الموحد والإسقاط
 c_btn1, c_btn2 = st.columns(2)
 with c_btn1:
     if st.button(t['btn_drop']): st.success(t['success_drop'])
