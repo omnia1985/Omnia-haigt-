@@ -106,7 +106,7 @@ append({
         "similar_to": "World-Class Pro", "star_image": "https://unsplash.com",
         "price": "45,000 USD", "status": "للبيع"
     })
-    st.rerun()
+st.rerun()
 
 players = st.session_state['global_players_list']
 if not players:
