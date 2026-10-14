@@ -94,13 +94,14 @@ c2.metric(label=t['m2'], value="2.1")
 c3.metric(label=t['m3'], value="64%")
 
 st.info(t['ai_tactical'])
-st.warning(t['ai_medical'])
-
+st.warning(t.get('ai_medical', 'التقرير الطبي والنفسي الاستباقي للناشئين والهواة: لغة جسم الاستماع يستمع إلى توتر عضلي محيط ورفزة مرتفعة (اليوم السلبي)، نقترح استبداله لتفادي الكرت الأحمر أو الشهر.'))
+#
 st.write("---")
-st.header(t['player_title'])
-
-if st.button(t['btn_add']):
-    st.session_state['global_players_list'].append({
+st.header(t.get('player_title', 'تحليل أداء ومستوى اللاعب تكتيكياً'))
+#
+if st.button(t.get('btn_add', 'إضافة اللاعب للمقارنة')):
+    st.session_state['selected_player'] = t.get('player_title', 'لاعب جديد')
+append({
         "name": "أحمد (Player Profile)", "age": 15, "position": "LW",
         "similar_to": "World-Class Pro", "star_image": "https://unsplash.com",
         "price": "45,000 USD", "status": "للبيع"
