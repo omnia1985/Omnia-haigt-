@@ -100,8 +100,8 @@ st.write("---")
 st.header(t.get('player_title', 'تحليل أداء ومستوى اللاعب تكتيكياً'))
 #
 if st.button(t.get('btn_add', 'إضافة اللاعب للمقارنة')):
-    st.session_state['selected_player'] = t.get('player_title', 'لاعب جديد')
-append({
+    st.session_state['selected_player'] = t.get('player_title', 'لاعب جديد').append({
+
         "name": "أحمد (Player Profile)", "age": 15, "position": "LW",
         "similar_to": "World-Class Pro", "star_image": "https://unsplash.com",
         "price": "45,000 USD", "status": "للبيع"
