@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Omnia DeepArena", layout="wide")
 
-# 🔒 السطر السحري المؤمن: خلق ذاكرة الجلسة واللغة وقائمة اللاعبين فوراً إذا كانت فارغة
+# ✨ السطر السحري المؤمن: تأمين ذاكرة الجلسة واللغة وقائمة اللاعبين فوراً لمنع اختفاء المحتوى
 if 'language' not in st.session_state:
     st.session_state['language'] = 'العربية'
 if 'global_players_list' not in st.session_state:
@@ -22,15 +22,17 @@ translations = {
         'f4': "✅ حماية المعطيات والامتثال لمنظومة GDPR",
         'cam_title': "🎥 فلتر مواجهة المباريات الحي (Universal AI Camera & AR Overlay)",
         'cam_sub': "📌 المنظومة مرتبطة حالياً بمصدر التصوير النشط (كاميرا الهاتف أو كاميرا الملعب)",
-        'm1': "📊 نسبة الاستحواذ اللحظية", 'm2': "🎯 نسبة تسجيل الأهداف (xG Live)", 'm3': "⚔️ نسبة التفوق في الثنائيات",
+        'm1': "📊 نسبة الاستحواذ اللحظية", 'm2': "🎯 نسبة تسجيل الأهداف (xG Live)", 'm3': "⚔️ نسبة التفوق في الثنائيات (Duels Won)",
         'btn_add': "➕ إنشاء كارت لاعب وتفعيل منظومة التشبيه (تجريبي)",
         'btn_pub': "🚀 إدراج في جدول الكشافين وتفعيل حماية الـ GDPR",
         'warn_no_player': "⚠️ لا يوجد لاعبون مسجلون حالياً عبر الصفحة الأولى.",
-        'success_pub': "📥 تم النشر بنجاح! تفعيل ميزة التغبيش وحماية الـ GDPR في الجدول لضمان حقوق المكوّن آلياً."
+        'success_pub': "📥 تم النشر بنجاح! تفعيل ميزة التغبيش وحماية الـ GDPR في الجدول لضمان حقوق المكوّن آلياً.",
+        'ai_tactical': "🧠 مساعد الذكاء الاصطناعي التكتيكي وطوارئ الريمونتادا: تم رصد ثغرة في الرواق الأيسر للخصم ونقترح التحول فوراً إلى خطة 3-5-2 الهجومية. محرك الريمونتادا قام بمحاكاة المباراة 50,000 مرة ونسبة العودة والانتصار بهذه الخطة هي 78%!",
+        'ai_medical': "🩺 التقرير الطبي والنفسي الاستباقي للناشئين والهواة: لغة جسد اللاعب تشير إلى إجهاد عضلي حاد ونرفزة مرتفعة (مؤشر اليوم السلبي)، نقترح استبداله لتفادي الكرت الأحمر أو الإصابة."
     },
     'English': {
         'title': "🏪 Division 2, 3, Amateur Clubs & Private Academies",
-        'sub': "📌 Small Clubs & Academies Package - Tailored to manage, feed, and display your club's own talents securely.",
+        'sub': "📌 Small Clubs & Academies Package - Tailored to manage, feed, and display your club's own talents securely peer-to-peer.",
         'price_label': "💰 Monthly Subscription Price",
         'features_title': "📋 Active Features:",
         'f1': "✅ Live Remontada Engine & Substitution Tactics (50,000 simulations)",
@@ -38,17 +40,37 @@ translations = {
         'f3': "✅ AR Overlay on Camera (Possession, Goals, Duels)",
         'f4': "✅ Data Protection & GDPR Compliance",
         'cam_title': "🎥 Live Match-Facing Filter (Universal AI Camera & AR Overlay)",
-        'cam_sub': "📌 System currently connected to active video source",
+        'cam_sub': "📌 System currently connected to active video source (Smartphone or Stadium Camera)",
         'm1': "📊 Live Possession Rate", 'm2': "🎯 Expected Goals (xG Live)", 'm3': "⚔️ Duels Won Percentage",
         'btn_add': "➕ Create Player Card & Activate Comparison System (Demo)",
         'btn_pub': "🚀 Publish to Scouts Market with GDPR Shield",
         'warn_no_player': "⚠️ No players registered yet via the first page.",
-        'success_pub': "📥 Successfully published with GDPR Shield."
+        'success_pub': "📥 Successfully published! Blurring and GDPR features activated to secure developer rights automatically.",
+        'ai_tactical': "🧠 AI Tactical Assistant: Weakness detected in opponent's left flank. We suggest shifting to 3-5-2. Remontada engine simulated the match 50,000 times, success rate is 78%!",
+        'ai_medical': "🩺 Proactive Medical Report: Player body language shows acute muscle fatigue and high stress (Negative Day Index). Substitution recommended to avoid red cards or injury."
     },
-    'Français': { 'title': "🏪 Clubs de Division 2, 3, Amateurs & Académies Privées", 'sub': "📌 Pack Petits Clubs & Académies.", 'price_label': "💰 Prix mensuel", 'features_title': "📋 Fonctionnalités:", 'f1': "✅ Moteur de Remontada (50 000 simulations)", 'f2': "✅ Analyse médicale (Jour Négatif)", 'f3': "✅ Incrustation AR", 'f4': "✅ Conformité GDPR", 'cam_title': "🎥 Filtrage en direct", 'cam_sub': "📌 Connecté", 'm1': "📊 Possession", 'm2': "🎯 xG Live", 'm3': "⚔️ Duels", 'btn_add': "➕ Créer joueur", 'btn_pub': "🚀 Publier", 'warn_no_player': "⚠️ Aucun joueur", 'success_pub': "📥 Publié" },
-    'Español': { 'title': "🏪 Clubes de División 2, 3", 'sub': "📌 Pack Pequeños.", 'price_label': "💰 Suscripción", 'features_title': "📋 Funciones:", 'f1': "✅ Remontada", 'f2': "✅ Médico", 'f3': "✅ AR", 'f4': "✅ GDPR", 'cam_title': "🎥 Filtro", 'cam_sub': "📌 Conectado", 'm1': "📊 Posesión", 'm2': "🎯 xG", 'm3': "⚔️ Duelos", 'btn_add': "➕ Crear", 'btn_pub': "🚀 Publicar", 'warn_no_player': "⚠️ No", 'success_pub': "📥 Éxito" },
-    'Italiano': { 'title': "🏪 Club di Divisione 2, 3", 'sub': "📌 Piccoli Club.", 'price_label': "💰 Abbonamento", 'features_title': "📋 Funzioni:", 'f1': "✅ Rimonta", 'f2': "✅ Medico", 'f3': "✅ AR", 'f4': "✅ GDPR", 'cam_title': "🎥 Filtro", 'cam_sub': "📌 Connesso", 'm1': "📊 Possesso", 'm2': "🎯 xG", 'm3': "⚔️ Duelli", 'btn_add': "➕ Crea", 'btn_pub': "🚀 Pubblica", 'warn_no_player': "⚠️ No", 'success_pub': "📥 Successo" },
-    'Português': { 'title': "🏪 Clubes de Divisão 2, 3", 'sub': "📌 Pequenos.", 'price_label': "💰 Assinatura", 'features_title': "📋 Recursos:", 'f1': "✅ Reviravolta", 'f2': "✅ Médico", 'f3': "✅ AR", 'f4': "✅ GDPR", 'cam_title': "🎥 Filtro", 'cam_sub': "📌 Conectado", 'm1': "📊 Posse", 'm2': "🎯 xG", 'm3': "⚔️ Duelos", 'btn_add': "➕ Criar", 'btn_pub': "🚀 Publicar", 'warn_no_player': "⚠️ Não", 'success_pub': "📥 Sucesso" }
+    'Français': {
+        'title': "🏪 Clubs de Division 2, 3, Amateurs & Académies Privées",
+        'sub': "📌 Pack Petits Clubs & Académies - Conçu pour gérer et afficher les talents de votre club de manière sécurisée et d'égal à égal.",
+        'price_label': "💰 Prix de l'abonnement mensuel",
+        'features_title': "📋 Fonctionnalités actives:",
+        'f1': "✅ Moteur de Remontada et tactiques de remplacement (50 000 simulations)",
+        'f2': "✅ Analyse médicale et psychologique proactive (Jour Négatif)",
+        'f3': "✅ Incrustation AR sur caméra (Possession, Buts, Duels)",
+        'f4': "✅ Protection des données et conformité GDPR",
+        'cam_title': "🎥 Filtrage de match en direct (Universal AI Camera & AR Overlay)",
+        'cam_sub': "📌 Système actuellement connecté à la source vidéo active",
+        'm1': "📊 Taux de possession", 'm2': "🎯 xG Live", 'm3': "⚔️ Pourcentage de duels gagnés",
+        'btn_add': "➕ Créer une carte joueur (Démo)",
+        'btn_pub': "🚀 Publier sur le marché avec protection GDPR",
+        'warn_no_player': "⚠️ Aucun joueur enregistré pour le moment.",
+        'success_pub': "📥 Publié avec succès! Floutage et GDPR activés pour protéger les droits des formateurs.",
+        'ai_tactical': "🧠 Assistant tactique IA: Faille détectée. Nous suggérons de passer en 3-5-2. Le moteur de Remontada a simulé le match 50 000 fois, réussite de 78%!",
+        'ai_medical': "🩺 Rapport médical proactif: Fatigue musculaire aiguë détectée (Indice Jour Négatif). Remplacement recommandé."
+    },
+    'Español': { 'title': "🏪 Clubes de División 2, 3, Aficionados y Academias Privadas", 'sub': "📌 Paquete de Clubes Pequeños.", 'price_label': "💰 Suscripción mensual", 'features_title': "📋 Funciones:", 'f1': "✅ Motor de Remontada (50,000)", 'f2': "✅ Día Negativo", 'f3': "✅ Superposición AR", 'f4': "✅ GDPR", 'cam_title': "🎥 Filtro en vivo", 'cam_sub': "📌 Sistema conectado", 'm1': "📊 Posesión", 'm2': "🎯 xG", 'm3': "⚔️ Duelos", 'btn_add': "➕ Crear tarjeta", 'btn_pub': "🚀 Publicar con GDPR", 'warn_no_player': "⚠️ No hay jugadores", 'success_pub': "📥 Éxito", 'ai_tactical': "🧠 3-5-2 (78%)", 'ai_medical': "🩺 Alerta" },
+    'Italiano': { 'title': "🏪 Club di Divisione 2, 3, Dilettanti e Accademie Private", 'sub': "📌 Piccoli Club.", 'price_label': "💰 Abbonamento mensile", 'features_title': "📋 Funzionalità:", 'f1': "✅ Rimonta (50.000)", 'f2': "✅ Giorno Negativo", 'f3': "✅ Sovrapposizione AR", 'f4': "✅ GDPR", 'cam_title': "🎥 Filtro partita", 'cam_sub': "📌 Connesso", 'm1': "📊 Possesso", 'm2': "🎯 xG", 'm3': "⚔️ Duelli", 'btn_add': "➕ Crea scheda", 'btn_pub': "🚀 Pubblica con GDPR", 'warn_no_player': "⚠️ No giocatori", 'success_pub': "📥 Successo", 'ai_tactical': "🧠 3-5-2 (78%)", 'ai_medical': "🩺 Allerta" },
+    'Português': { 'title': "🏪 Clubes de Divisão 2, 3, Amadores e Academias Privadas", 'sub': "📌 Pequenos Clubes.", 'price_label': "💰 Assinatura mensal", 'features_title': "📋 Recursos:", 'f1': "✅ Reviravolta (50.000)", 'f2': "✅ Dia Negativo", 'f3': "✅ Sobreposição AR", 'f4': "✅ GDPR", 'cam_title': "🎥 Filtro de jogo", 'cam_sub': "📌 Conectado", 'm1': "📊 Posse", 'm2': "🎯 xG", 'm3': "⚔️ Duelos", 'btn_add': "➕ Criar carta", 'btn_pub': "🚀 Publicar com GDPR", 'warn_no_player': "⚠️ Não há jogadores", 'success_pub': "📥 Sucesso", 'ai_tactical': "🧠 3-5-2 (78%)", 'ai_medical': "🩺 Alerta" }
 }
 
 t = translations.get(lang, translations['English'])
@@ -71,11 +93,16 @@ c1.metric(label=t['m1'], value="56%")
 c2.metric(label=t['m2'], value="2.1")
 c3.metric(label=t['m3'], value="64%")
 
+st.info(t['ai_tactical'])
+st.warning(t['ai_medical'])
+
 st.write("---")
+st.header(t['player_title'])
+
 if st.button(t['btn_add']):
     st.session_state['global_players_list'].append({
-        "name": "أحمد (ناشئ)", "age": 15, "position": "LW",
-        "similar_to": "نجوم المحترفين", "star_image": "https://unsplash.com",
+        "name": "أحمد (Player Profile)", "age": 15, "position": "LW",
+        "similar_to": "World-Class Pro", "star_image": "https://unsplash.com",
         "price": "45,000 USD", "status": "للبيع"
     })
     st.rerun()
